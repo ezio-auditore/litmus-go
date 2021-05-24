@@ -1,0 +1,29 @@
+apiVersion: litmuchaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  name: virt-launcher-pod-delete 
+  version: 0.1.0
+  annotations:
+    categories: ocs-cnv
+spec:
+  displayName: virt-launcher-pod-delete 
+  categoryDescription: >
+    kills virt-launcher pod 
+  keywords: 
+    - "pods" 
+    - "kubernetes" 
+    - "ocs-cnv" 
+    - "fedora-34"
+  maturity: alpha 
+  minKubeVersion: 1.12.0 
+  provider: 
+    name: Redhat
+  maintainers: 
+    - name: kmajumder 
+      email: kmajumde@redhat.com
+  links: 
+    - name: Documentation 
+      url: https://docs.litmuschaos.io/docs/getstarted/ 
+  icon:
+    - url: 
+      mediatype: ""
