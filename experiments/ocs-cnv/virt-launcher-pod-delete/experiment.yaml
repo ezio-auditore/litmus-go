@@ -1,0 +1,51 @@
+apiVersion: litmuschaos.io/v1alpha1
+description:
+  message: |
+    kills virt-launcher pod
+kind: ChaosExperiment
+metadata:
+  name: virt-launcher-pod-delete
+spec:
+  definition:
+    scope: Namespaced
+    permissions:
+      - apiGroups: 
+          - "" 
+          - "batch" 
+          - "litmuschaos.io" 
+          - "kubevirt.io"
+        resources: 
+          - "jobs" 
+          - "pods" 
+          - "chaosengines" 
+          - "chaosexperiments" 
+          - "chaosresults"
+        verbs: 
+          - "create" 
+          - "list" 
+          - "get" 
+          - "update" 
+          - "patch" 
+          - "delete"
+    image: "litmuschaos/go-runner:latest"
+    args:
+    - -c
+    - ./experiments -name virt-launcher-pod-delete
+    command:
+    - /bin/bash
+    env:
+
+    - name: TOTAL_CHAOS_DURATION
+      value: '' 
+
+    - name: CHAOS_INTERVAL
+      value: ''
+
+    - name: LIB
+      value: ''
+
+    - name: RAMP_TIME
+      value: ''
+      
+    labels:
+      experiment: virt-launcher-pod-delete 
